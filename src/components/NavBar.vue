@@ -1,12 +1,12 @@
 <template>
     <nav>
         <div class="logo">
-            <img src="../assets/LogoBranca.png">
+            <img src="../assets/LogoBranca.png" @click="route('HomePage')">
         </div>
         <div class="items">
-            <h1 id="sobre"> Sobre </h1>
-            <h1 id="projetos"> Projetos </h1>
-            <h1 id="contato"> Contato </h1>
+            <button id="sobre" @click="route('AboutPage')"> Sobre </button>
+            <button id="projetos" @click="route('ProjetosPage')"> Projetos </button>
+            <button id="contato" @click="route('ContactPage')"> Contato </button>
         </div>
     </nav>
 </template>
@@ -15,6 +15,11 @@
 
 export default {
     name: "NavBar",
+    methods: {
+        route(path) {
+            this.$router.push({name:path});
+        },     
+    },
 }
 </script>
 
@@ -38,6 +43,7 @@ export default {
 
             img{
                 width: 130px;
+                cursor: pointer;
             }
         }
 
@@ -48,6 +54,21 @@ export default {
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
+
+            button{
+                background-color: transparent;
+                cursor: pointer;
+                border: none;
+                color: white;
+                width: 150px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            button:hover{
+                border-radius: 2px;
+                background-color: #006c33;
+            }
         }
     }
 </style>
